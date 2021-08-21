@@ -1,0 +1,235 @@
+//* Header Component *// Done
+header {
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	h1 {
+		font-size: 3.6rem;
+		font-weight: 400;
+		text-align: center;
+		text-transform: uppercase;
+
+		strong {
+			color: #313131;
+		}
+	}
+}
+
+//*Flex Gallery Component *// In progress.
+.gallery-container {
+	background: blue;
+	flex: 0 0 100%;
+	max-width: inherit;
+	margin: inherit;
+	min-height: 20vh;
+}
+
+.panels {
+	overflow: hidden;
+	display: flex; //flex items
+	& > div {
+		background-color: var(--color-primary-dark);
+		box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+		color: white;
+		text-align: center;
+		align-items: center;
+		/* Safari transitionend event.propertyName === flex */
+		/* Chrome + FF transitionend event.propertyName === flex-grow */
+		transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+			background 0.2s;
+		font-size: 20px;
+		background-size: cover;
+		background-position: center;
+		flex: 1;
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
+
+		a,
+		figure,
+		img {
+		}
+		img {
+		}
+	}
+
+	/* Flex Items */
+	//TODO after creating main animation
+	// .panel > * {
+	// 	margin: 0;
+	// 	width: 100%;
+	// 	transition: transform 0.5s;
+	// 	flex: 1 0 auto;
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items: center;
+	// }
+
+	.panel > *:first-child {
+		transform: translateY(-100%);
+	}
+	.panel.open-active > *:first-child {
+		transform: translateY(0);
+	}
+	.panel > *:last-child {
+		transform: translateY(100%);
+	}
+	.panel.open-active > *:last-child {
+		transform: translateY(0);
+	}
+
+	&__panel-0.open {
+		flex: 3;
+		font-size: 4rem;
+	}
+	&__panel-1.open {
+		flex: 3;
+		font-size: 4rem;
+	}
+	&__panel-2.open {
+		flex: 3;
+		font-size: 4rem;
+	}
+	&__panel-3.open {
+		flex: 3;
+		font-size: 4rem;
+	}
+	&__panel-4.open {
+		flex: 3;
+		font-size: 4rem;
+	}
+}
+
+//* Sidebar Component // TODO still.
+
+.sidebar {
+	flex: 1 1 250px;
+	max-width: 250px;
+	padding-right: 16px;
+
+	nav {
+		padding-left: 16px;
+		padding-right: 16px;
+
+		h3 {
+			color: #313131;
+			font-size: 24px;
+			margin-bottom: 16px;
+		}
+
+		a {
+			display: block;
+			padding: 8px 16px;
+			text-align: left;
+
+			color: #888;
+			font-size: 16px;
+			margin-bottom: 16px;
+
+			background-color: #eee;
+			border-radius: 999px;
+			text-decoration: none;
+
+			transition: 0.4s;
+
+			&:hover {
+				background-color: #313131;
+				color: #aaa;
+			}
+		}
+	}
+}
+
+//* MainContent Comopnent!
+
+main {
+	flex: 1 1 0%;
+	padding: 0px 16px;
+
+	.main-head {
+		display: flex;
+		justify-content: flex-end;
+
+		.search-box {
+			display: flex;
+			justify-content: flex-end;
+			flex: 1 1 0%;
+
+			input {
+				appearance: none;
+				background: none;
+				outline: none;
+				border: none;
+
+				display: block;
+				width: 100%;
+				max-width: 400px;
+				padding: 16px;
+				border-radius: 999px;
+				background-color: #eee;
+
+				transition: 0.4s;
+
+				::placeholder {
+					color: #888;
+				}
+
+				&:focus,
+				&:valid {
+					background-color: #313131;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+//*TODO Searchbar component
+
+//*TODO  AnimeCard Component
+.anime-list {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 32px;
+	margin: 32px -8px 0px;
+
+	.anime-card {
+		flex: 1 1 33.333%;
+		max-width: 33.333%;
+		padding: 16px 8px;
+
+		a {
+			text-decoration: none;
+		}
+
+		figure {
+			display: block;
+			margin-bottom: 16px;
+
+			img {
+				display: block;
+				width: 100%;
+				height: 350px;
+				object-fit: cover;
+				border-radius: 16px;
+				box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+
+				transition: 0.4s;
+			}
+		}
+
+		h3 {
+			color: #313131;
+		}
+
+		&:hover {
+			figure {
+				img {
+					box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+}
+
+//*TODO Modal Component

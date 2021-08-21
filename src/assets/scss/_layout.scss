@@ -1,0 +1,9 @@
+.content-wrap {
+	max-width: 140rem;
+	margin: 8rem auto;
+	//TODO add a box shadow
+	min-height: 50rem;
+	background-color: #333;
+	display: flex;
+	flex-wrap: wrap;
+}
