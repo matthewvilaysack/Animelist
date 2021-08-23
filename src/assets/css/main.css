@@ -299,40 +299,53 @@ main .main-head .search-box input:focus, main .main-head .search-box input:valid
 }
 
 .anime-list .anime-card {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 33.333%;
-          flex: 1 1 33.333%;
-  max-width: 33.333%;
+  -ms-flex-preferred-size: 100% !important;
+      flex-basis: 100% !important;
+  background-color: var(--color-primary-light) !important;
   padding: 16px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.anime-list .anime-card a {
-  text-decoration: none;
+.anime-list .anime-card__image {
+  color: #fff;
+  margin-left: 0.5rem;
+  padding: 0 2.25rem;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.anime-list .anime-card figure {
-  display: block;
-  margin-bottom: 16px;
+.anime-list .anime-card__title-container {
+  background: pink;
+  margin-right: auto;
 }
 
-.anime-list .anime-card figure img {
-  display: block;
-  width: 100%;
-  height: 350px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 16px;
-  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+.anime-list .anime-card__score-container {
+  background: grey;
 }
 
-.anime-list .anime-card h3 {
-  color: #313131;
+.anime-list .anime-card__type {
+  background: green;
 }
 
-.anime-list .anime-card:hover figure img {
+.anime-list:hover figure img {
   -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
   -webkit-transform: scale(1.05);

@@ -11,13 +11,16 @@ function App() {
 
 	const GetTopAnime = async () => {
 		const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
-			.then(res => res.json());
+			.then(res => res.json())
 
 		SetTopAnime(temp.top.slice(0, 5)); // i might change this number. 
 	}
 
+
+
 	const HandleSearch = e => {
 		e.preventDefault();
+
 
 		FetchAnime(search);
 	}
@@ -25,7 +28,6 @@ function App() {
 	const FetchAnime = async (query) => {
 		const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=5`)
 			.then(res => res.json());
-
 		SetAnimeList(temp.results);
 	}
 
@@ -48,7 +50,7 @@ function App() {
 			</div>
 		</div>
 
-	);
+	)
 }
 
 export default App;

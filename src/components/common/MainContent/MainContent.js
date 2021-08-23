@@ -3,6 +3,7 @@ import AnimeCard from '../AnimeCard';
 
 
 
+
 function MainContent(props) {
 	return (
 		<main>
