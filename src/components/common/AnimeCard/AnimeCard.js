@@ -1,24 +1,19 @@
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import React from 'react'
+import Typography from '@material-ui/core/Typography'; // what the fuck is typography
 import { CardHeader } from '@material-ui/core';
 import { Avatar } from '@material-ui/core';
 
-{/* <a
-				href={anime.url}
-				target="_blank"
-				rel="noreferrer">
-				<figure>
-					<img src={anime.image_url} />
-				</figure>
-				<h3>{anime.title}</h3>
-			</a> */}
+
+import Starrating from '../Starrating';
+import { LineProgressBar } from '@frogress/line'
+
+
+
 
 function AnimeCard({ anime }) {
 	return (
@@ -36,19 +31,23 @@ function AnimeCard({ anime }) {
 							<Button href="#text-buttons" color="primary" size="medium">{anime.title}</Button>
 						</a>
 					</div>
-					<Button color="primary" variant="contained">Add</Button>
-					<div className="anime-card__score-container">
-						score
+					<div>
+						<Button color="primary" variant="contained">Add</Button>
+					</div>
+					<div className="anime-card__star-container">
+						<Starrating />
 					</div>
 					<div className="anime-card__type">
 						type
+
+					</div>
+					<div className="anime-card__progress">
+						<LineProgressBar percent={2} rounded={18} height={9} />
 					</div>
 
 				</CardActions>
 			</CardActionArea>
-
-
-		</Card>
+		</Card >
 	)
 }
 export default AnimeCard

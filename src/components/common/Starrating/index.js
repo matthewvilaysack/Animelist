@@ -1,11 +1,3 @@
-!import React from 'react'
+import Starrating from './Starrating'
 
-function Starrating() {
-    return (
-        <div>
-
-        </div>
-    )
-}
-
-export default Starrating
+export default Starrating;

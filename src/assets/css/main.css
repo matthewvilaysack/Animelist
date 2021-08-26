@@ -54,7 +54,7 @@ body {
   max-width: 140rem;
   margin: 8rem auto;
   min-height: 50rem;
-  background-color: #333;
+  background-color: var(--color-grey-light-1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,6 +86,7 @@ header h1 strong {
   max-width: inherit;
   margin: inherit;
   min-height: 20vh;
+  display: none;
 }
 
 .panels {
@@ -190,6 +191,36 @@ header h1 strong {
           flex: 1 1 250px;
   max-width: 250px;
   padding-right: 16px;
+  background-color: var(--color-grey-dark-1);
+}
+
+.sidebar-nav {
+  font-size: 2rem;
+  list-style: none;
+}
+
+.sidebar-nav__item {
+  position: relative;
+}
+
+.sidebar-nav__item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-nav__link:link, .sidebar-nav__link:visited {
+  color: var(--color-grey-light-1);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  padding: 1.5rem 3rem;
+  position: relative;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .sidebar nav {
@@ -198,7 +229,7 @@ header h1 strong {
 }
 
 .sidebar nav h3 {
-  color: #313131;
+  color: var(--color-grey-light-1);
   font-size: 24px;
   margin-bottom: 16px;
 }
@@ -227,18 +258,27 @@ main {
       -ms-flex: 1 1 0%;
           flex: 1 1 0%;
   padding: 0px 16px;
-}
-
-main .main-head {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
-main .main-head .search-box {
+main .main-head {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+main .search-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,7 +290,7 @@ main .main-head .search-box {
           flex: 1 1 0%;
 }
 
-main .main-head .search-box input {
+main .search-box input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -267,41 +307,44 @@ main .main-head .search-box input {
   transition: 0.4s;
 }
 
-main .main-head .search-box input ::-webkit-input-placeholder {
+main .search-box input ::-webkit-input-placeholder {
   color: #888;
 }
 
-main .main-head .search-box input :-ms-input-placeholder {
+main .search-box input :-ms-input-placeholder {
   color: #888;
 }
 
-main .main-head .search-box input ::-ms-input-placeholder {
+main .search-box input ::-ms-input-placeholder {
   color: #888;
 }
 
-main .main-head .search-box input ::placeholder {
+main .search-box input ::placeholder {
   color: #888;
 }
 
-main .main-head .search-box input:focus, main .main-head .search-box input:valid {
+main .search-box input:focus, main .search-box input:valid {
   background-color: #313131;
   color: #fff;
 }
 
 .anime-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 32px;
   margin: 32px -8px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .anime-list .anime-card {
   -ms-flex-preferred-size: 100% !important;
       flex-basis: 100% !important;
-  background-color: var(--color-primary-light) !important;
+  background-color: var(--color-primary) !important;
   padding: 16px 8px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -337,12 +380,13 @@ main .main-head .search-box input:focus, main .main-head .search-box input:valid
   margin-right: auto;
 }
 
-.anime-list .anime-card__score-container {
-  background: grey;
-}
-
 .anime-list .anime-card__type {
   background: green;
+}
+
+.anime-list .anime-card__progress {
+  margin-left: 2rem;
+  width: 10%;
 }
 
 .anime-list:hover figure img {
@@ -350,5 +394,16 @@ main .main-head .search-box input:focus, main .main-head .search-box input:valid
           box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.blank-search {
+  width: inherit;
+  font-size: 3rem;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+input[type='radio'] {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

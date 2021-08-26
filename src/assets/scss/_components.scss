@@ -22,6 +22,7 @@ header {
 	max-width: inherit;
 	margin: inherit;
 	min-height: 20vh;
+	display: none;
 }
 
 .panels {
@@ -99,13 +100,45 @@ header {
 	flex: 1 1 250px;
 	max-width: 250px;
 	padding-right: 16px;
+	background-color: var(--color-grey-dark-1);
+	&-nav {
+		font-size: 2rem;
+		list-style: none;
+		//*note about responsive design: when making it, make this a flex container
+
+		&__item {
+			position: relative;
+		}
+		&__item:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+
+		&__link {
+		}
+		&__link:link,
+		&__link:visited {
+			color: var(--color-grey-light-1);
+			text-decoration: none;
+			text-transform: uppercase;
+			display: block;
+			padding: 1.5rem 3rem;
+			position: relative;
+			z-index: 10;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+		}
+	}
 
 	nav {
 		padding-left: 16px;
 		padding-right: 16px;
 
 		h3 {
-			color: #313131;
+			color: var(--color-grey-light-1);
 			font-size: 24px;
 			margin-bottom: 16px;
 		}
@@ -138,40 +171,42 @@ header {
 main {
 	flex: 1 1 0%;
 	padding: 0px 16px;
+	flex-direction: column;
+	display: flex;
 
 	.main-head {
+		justify-content: center;
+		justify-self: center;
+		align-self: center;
+	}
+	.search-box {
 		display: flex;
 		justify-content: flex-end;
+		flex: 1 1 0%;
 
-		.search-box {
-			display: flex;
-			justify-content: flex-end;
-			flex: 1 1 0%;
+		input {
+			appearance: none;
+			background: none;
+			outline: none;
+			border: none;
 
-			input {
-				appearance: none;
-				background: none;
-				outline: none;
-				border: none;
+			display: block;
+			width: 100%;
+			max-width: 400px;
+			padding: 16px;
+			border-radius: 999px;
+			background-color: #eee;
 
-				display: block;
-				width: 100%;
-				max-width: 400px;
-				padding: 16px;
-				border-radius: 999px;
-				background-color: #eee;
+			transition: 0.4s;
 
-				transition: 0.4s;
+			::placeholder {
+				color: #888;
+			}
 
-				::placeholder {
-					color: #888;
-				}
-
-				&:focus,
-				&:valid {
-					background-color: #313131;
-					color: #fff;
-				}
+			&:focus,
+			&:valid {
+				background-color: #313131;
+				color: #fff;
 			}
 		}
 	}
@@ -180,14 +215,15 @@ main {
 
 //*TODO  AnimeCard Component
 .anime-list {
-	display: flex;
 	flex-wrap: wrap;
 	margin-top: 32px;
 	margin: 32px -8px 0px;
+	display: flex;
+	justify-content: center;
 
 	.anime-card {
 		flex-basis: 100% !important;
-		background-color: var(--color-primary-light) !important;
+		background-color: var(--color-primary) !important;
 		padding: 16px 8px;
 		display: flex;
 		align-items: center;
@@ -205,14 +241,16 @@ main {
 			background: pink;
 			margin-right: auto;
 		}
-		&__score-container {
-			background: grey;
+		&__star-container {
 		}
 		&__type {
 			background: green;
 		}
+		&__progress {
+			margin-left: 2rem;
+			width: 10%;
+		}
 	}
-
 	&:hover {
 		figure {
 			img {
@@ -221,6 +259,16 @@ main {
 			}
 		}
 	}
+}
+
+.blank-search {
+	width: inherit;
+	font-size: 3rem;
+	justify-self: center;
+}
+
+input[type='radio'] {
+	display: none;
 }
 
 //*TODO Modal Component

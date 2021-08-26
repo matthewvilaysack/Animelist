@@ -10,25 +10,31 @@ function App() {
 	const [search, SetSearch] = useState("");
 
 	const GetTopAnime = async () => {
-		const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
+		const temp = await fetch("https://api.jikan.moe/v3/top/anime/1/bypopularity")
 			.then(res => res.json())
 
-		SetTopAnime(temp.top.slice(0, 5)); // i might change this number. 
+		SetTopAnime(temp.top.slice(0, 5));
 	}
+
+
 
 
 
 	const HandleSearch = e => {
 		e.preventDefault();
 
-
 		FetchAnime(search);
 	}
 
 	const FetchAnime = async (query) => {
-		const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=5`)
-			.then(res => res.json());
-		SetAnimeList(temp.results);
+		//Jikan API only allows 3 or more character queries
+		if (query.length >= 3) {
+			const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=5`)
+				.then(res => res.json())
+				.catch(e => console.log("error ", e))
+
+			SetAnimeList(temp.results)
+		}
 	}
 
 	useEffect(() => {

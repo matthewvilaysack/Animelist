@@ -4,18 +4,20 @@ import React from 'react'
 function Sidebar({ topAnime }) {
 	return (
 		<aside className="sidebar">
-			<nav>
-				<h3>Top Anime</h3>
+			<ul className="sidebar-nav">
+				<h3>Filters</h3>
 				{topAnime.map(anime => (
-					<a
-						href={anime.url}
-						target="_blank"
-						key={anime.mal_id}
-						rel="noreferrer">
-						{anime.title}
-					</a>
+					<li className="sidebar-nav__item" key={anime.mal_id}>
+						<a
+							className="sidebar-nav__link"
+							href={anime.url}
+							target="_blank"
+							rel="noreferrer">
+							{anime.title}
+						</a>
+					</li>
 				))}
-			</nav>
+			</ul>
 		</aside>
 	)
 }

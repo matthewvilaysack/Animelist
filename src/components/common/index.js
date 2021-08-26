@@ -6,12 +6,13 @@ import PanelCard from './PanelCard';
 import Sidebar from './Sidebar';
 
 
+
 export {
     AnimeCard,
     Gallery,
     Header,
     MainContent,
     PanelCard,
-    Sidebar
+    Sidebar,
 
 }
