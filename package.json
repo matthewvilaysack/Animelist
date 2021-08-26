@@ -1,7 +1,7 @@
 {
 	"name": "react-anime-yt",
 	"version": "0.1.0",
-    "engine" : "v16.6.2",
+	"engine": "v16.6.2",
 	"private": true,
 	"dependencies": {
 		"@frogress/line": "^1.0.1",
@@ -12,7 +12,7 @@
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-icons": "^4.2.0",
-		"react-scripts": "4.0.1",
+		"react-scripts": "^4.0.3",
 		"web-vitals": "^0.2.4"
 	},
 	"scripts": {
