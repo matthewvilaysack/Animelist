@@ -1,7 +1,6 @@
 {
 	"name": "react-anime-yt",
 	"version": "0.1.0",
-	"engine": "v14.17.5",
 	"private": true,
 	"dependencies": {
 		"@frogress/line": "^1.0.1",
