@@ -1,60 +1,46 @@
-import { useState, useEffect } from 'react';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from './components/common/Header';
-import Sidebar from './components/common/Sidebar';
-import MainContent from './components/common/MainContent';
-import Gallery from './components/common/Gallery';
+import Watchlist from './components/common/Watchlist'
+import Watched from './components/common/Watched'
+import Add from './components/common/Add'
+import './assets/css/main.css'
+import './lib/font-awesome/css/all.min.css'
+
+import { GlobalProvider } from './context/GlobalState';
+{/* maybe sidebar+maincontent */ }
 
 function App() {
-	const [animeList, SetAnimeList] = useState([]);
-	const [topAnime, SetTopAnime] = useState([]);
-	const [search, SetSearch] = useState("");
-
-	const GetTopAnime = async () => {
-		const temp = await fetch("https://api.jikan.moe/v3/top/anime/1/bypopularity")
-			.then(res => res.json())
-
-		SetTopAnime(temp.top.slice(0, 5));
-	}
-
-
-
-
-
-	const HandleSearch = e => {
-		e.preventDefault();
-
-		FetchAnime(search);
-	}
-
-	const FetchAnime = async (query) => {
-		//Jikan API only allows 3 or more character queries
-		if (query.length >= 3) {
-			const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=5`)
-				.then(res => res.json())
-				.catch(e => console.log("error ", e))
-
-			SetAnimeList(temp.results)
-		}
-	}
-
-	useEffect(() => {
-		GetTopAnime();
-	}, []);
-
 	return (
-		<div className="App">
-			<Header />
-			<div className="content-wrap">
-				<Gallery topAnime={topAnime} animeList={animeList} />
-				<Sidebar
-					topAnime={topAnime} />
-				<MainContent
-					HandleSearch={HandleSearch}
-					search={search}
-					SetSearch={SetSearch}
-					animeList={animeList} />
-			</div>
-		</div>
+		<GlobalProvider>
+			{/* <Router>
+				<Header />
+				<Switch>
+					<Route exact path="/">
+						<Watchlist />
+					</Route>
+					<Route path="/add">
+						<Add />
+					</Route>
+					<Route path="/watched">
+						<Watched />
+					</Route>
+				</Switch>
+			</Router> */}
+		</GlobalProvider>
+		// <div className="App">
+		// 	<Header />
+		// 	<div className="content-wrap">
+		// 		<Gallery topAnime={topAnime} animeList={animeList} />
+		// 		<Sidebar
+		// 			topAnime={topAnime} />
+		// 		<MainContent
+		// 			HandleSearch={HandleSearch}
+		// 			search={search}
+		// 			SetSearch={SetSearch}
+		// 			animeList={animeList} />
+		// 	</div>
+		// </div>
 
 	)
 }

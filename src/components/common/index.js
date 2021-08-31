@@ -4,6 +4,7 @@ import Header from './header';
 import MainContent from './MainContent';
 import PanelCard from './PanelCard';
 import Sidebar from './Sidebar';
+import Animelist from './Watchlist'
 
 
 
@@ -14,5 +15,6 @@ export {
     MainContent,
     PanelCard,
     Sidebar,
+    Animelist
 
 }
