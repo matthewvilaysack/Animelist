@@ -27,7 +27,7 @@ export const GlobalProvider = props => {
     }, [state]);
 
     //actions, tell provider 
-    const addAnimeToWatchList = (anime) => {
+    const addAnimeToWatchlist = (anime) => {
         dispatch({ type: "ADD_ANIME_TO_WATCHLIST", payload: anime })
     }
 
@@ -50,7 +50,7 @@ export const GlobalProvider = props => {
         <GlobalContext.Provider value={{
             watchlist: state.watchlist,
             watched: state.watched,
-            addAnimeToWatchList,
+            addAnimeToWatchlist,
             removeAnimeFromWatchlist,
             addAnimeToWatched,
             moveToWatchlist,

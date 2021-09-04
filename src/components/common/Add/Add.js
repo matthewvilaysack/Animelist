@@ -15,7 +15,7 @@ function Add() {
 
     const FetchAnime = async (query) => {
         //* Jikan API only allows 3+ char queries
-        if (query.length >= 3) {
+        if (query !== undefined && query.length >= 3) {
             fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=5`)
                 .then((resp) => resp.json())
                 .then((data) => {
@@ -39,9 +39,9 @@ function Add() {
                     </div>
                     {results.length > 0 && (
                         <ul className="results">
-                            {results.map(anime => (
+                            {results.map((anime, i) => (
                                 <li key={anime.id}>
-                                    <ResultCard anime={anime} />
+                                    <ResultCard anime={anime} key={anime.id + "!"} />
                                 </li>
                             ))}
                         </ul>

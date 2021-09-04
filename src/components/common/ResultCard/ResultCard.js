@@ -14,7 +14,7 @@ function ResultCard({ anime }) {
                 ? true
                 : false;
 
-    const watchedDisabled = storeAnimeWatched ? true : false;
+    const watchedDisabled = false;
     return (
         <div className="result-card">
             <div className="poster-wrapper">

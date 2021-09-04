@@ -8,12 +8,11 @@ import './assets/css/main.css'
 import './lib/font-awesome/css/all.min.css'
 
 import { GlobalProvider } from './context/GlobalState';
-{/* maybe sidebar+maincontent */ }
 
 function App() {
 	return (
 		<GlobalProvider>
-			{/* <Router>
+			<Router>
 				<Header />
 				<Switch>
 					<Route exact path="/">
@@ -26,7 +25,7 @@ function App() {
 						<Watched />
 					</Route>
 				</Switch>
-			</Router> */}
+			</Router>
 		</GlobalProvider>
 		// <div className="App">
 		// 	<Header />

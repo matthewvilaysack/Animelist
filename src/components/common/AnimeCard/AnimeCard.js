@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography'; // what the fuck is typography
 import { CardHeader } from '@material-ui/core';
 import { Avatar } from '@material-ui/core';
-
+import AnimeCardControls from '../AnimeCardControls/';
 
 import Starrating from '../Starrating';
 import { LineProgressBar } from '@frogress/line'
@@ -15,7 +15,7 @@ import { LineProgressBar } from '@frogress/line'
 
 
 
-function AnimeCard({ anime }) {
+function AnimeCard({ anime, type }) {
 	return (
 		<Card className="anime-card">
 			<div className="anime-card__ranking">#</div>
@@ -28,11 +28,11 @@ function AnimeCard({ anime }) {
 					<div className="anime-card__title-container">
 						{/* make sure to add a link tothe anime's MAL profile. */}
 						<a href={anime.title}>
-							<Button href="#text-buttons" color="primary" size="medium">{anime.title}</Button>
+							{/* <Button href="#text-buttons" color="primary" size="medium">{anime.title}</Button> */}
 						</a>
 					</div>
 					<div>
-						<Button color="primary" variant="contained">Add</Button>
+						{/* <Button color="primary" variant="contained">Add</Button> */}
 					</div>
 					<div className="anime-card__star-container">
 						<Starrating />
@@ -47,7 +47,8 @@ function AnimeCard({ anime }) {
 
 				</CardActions>
 			</CardActionArea>
-		</Card >
+			<AnimeCardControls type={type} anime={anime} />
+		</Card>
 	)
 }
 export default AnimeCard
