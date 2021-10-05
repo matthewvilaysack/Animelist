@@ -1,3 +1,18 @@
+.app-container {
+	max-width: 120rem;
+	margin: 8rem auto;
+	background-color: var(--color-grey-light-1);
+	box-shadow: var(--shadow-dark);
+
+	min-height: 50rem;
+
+	@media only screen and (max-width: $bp-largest) {
+		margin: 0;
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
 //* Header Component Styles*// Done
 header {
 	padding-top: 3rem;
@@ -17,12 +32,6 @@ header {
 		flex-wrap: wrap;
 		padding: 1rem 0;
 	}
-	a {
-		color: var(--color-grey-dark-1);
-		font-size: 1.25rem;
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
 
 	a:hover {
 		opacity: 0.7;
@@ -31,8 +40,11 @@ header {
 	.brand {
 		flex-basis: 100%;
 		a {
+			text-decoration: none;
+			border: none;
 			font-weight: 700;
 			font-size: 1.5rem;
+			color: var(--color-grey-dark-1);
 		}
 	}
 
@@ -42,9 +54,25 @@ header {
 		list-style: none;
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		li {
-			display: inline-block;
-			margin-right: 3rem;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			margin: 0 2rem;
+			a {
+				color: var(--color-grey-dark-1);
+				padding: 1rem 5rem;
+				font-size: 1.25rem;
+				text-decoration: none;
+				transition: all 0.3s ease;
+				background-color: var(--color-primary-dark);
+				border-radius: 5px;
+				font-weight: 700;
+				border: none;
+				font-size: 1.5rem;
+				line-height: 1.1;
+			}
 		}
 	}
 
@@ -103,18 +131,6 @@ header {
 		display: flex;
 		flex-direction: column;
 	}
-
-	/* Flex Items */
-	//TODO after creating main animation
-	// .panel > * {
-	// 	margin: 0;
-	// 	width: 100%;
-	// 	transition: transform 0.5s;
-	// 	flex: 1 0 auto;
-	// 	display: flex;
-	// 	justify-content: center;
-	// 	align-items: center;
-	// }
 
 	.panel > *:first-child {
 		transform: translateY(-100%);
@@ -240,7 +256,7 @@ main {
 		display: flex;
 		justify-content: flex-end;
 		flex: 1 1 0%;
-
+		border: 1px black;
 		input {
 			appearance: none;
 			background: none;
@@ -268,9 +284,32 @@ main {
 		}
 	}
 }
-//*TODO Searchbar component
+//*TODO Add Page
+/* Add Page */
+.add-page {
+	padding: 50px 0;
+	max-width: 600px;
+	margin: 0 auto;
 
-//*TODO  AnimeCard Component
+	&__container {
+	}
+	&__content {
+		padding: 50px 0;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	&__content .input-wrapper input {
+		width: 100%;
+		background-color: var(--primary);
+		padding: 1rem;
+		border-radius: 5px;
+		border: 1px solid var(--color-grey-dark-2);
+		color: var(--color-grey-dark-1);
+		font-size: 1.5rem;
+	}
+}
+
 .anime-list {
 	flex-wrap: wrap;
 	margin-top: 32px;
@@ -328,4 +367,81 @@ input[type='radio'] {
 	display: none;
 }
 
-//*TODO Modal Component
+//*TODO Results Component
+
+.results {
+	list-style: none;
+	display: block;
+	padding: 0;
+	margin: 0;
+	margin-top: 2rem;
+	.result-card {
+		display: flex;
+		margin-bottom: 2rem;
+		overflow: hidden;
+		width: 100%;
+		&:hover {
+			border: 1px solid var(--color-grey-dark-1);
+		}
+	}
+	.poster-wrapper img {
+		width: 75px;
+		height: 113px;
+		background-color: #dbdada;
+		border-radius: 0.5rem;
+		margin-right: 1.5rem;
+		display: block;
+		color: transparent;
+	}
+	.info {
+		display: flex;
+		flex-direction: column;
+
+		.title {
+			font-size: 1.5rem;
+			color: var(--color-primary);
+			font-weight: 600;
+			margin: 0;
+		}
+	}
+	.controls {
+		margin-left: auto;
+		display: flex;
+		flex-direction: column;
+		flex-basis: 0;
+	}
+
+	.controls > .btn {
+		&:last-child {
+			margin-top: 0.25rem;
+		}
+	}
+}
+.btn {
+	color: var(--color-grey-dark-1);
+	padding: 1rem 5rem;
+	font-size: 1.25rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	background-color: var(--color-primary-dark);
+	border-radius: 5px;
+	font-weight: 700;
+	border: none;
+	font-size: 1.5rem;
+	line-height: 1.1;
+}
+
+.btn:hover {
+	background-color: var(--color-primary-light);
+	opacity: 1;
+	cursor: pointer;
+}
+
+.btn:disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+input:focus {
+	outline: none;
+}

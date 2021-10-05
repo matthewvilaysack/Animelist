@@ -10,20 +10,18 @@ function Add() {
     const HandleSearch = (e) => {
         e.preventDefault();
         setSearch(e.target.value)
-        FetchAnime(e.target.value)
+        if (e.target.value.length >= 3) FetchAnime(e.target.value)
     }
 
     const FetchAnime = async (query) => {
         //* Jikan API only allows 3+ char queries
-        if (query !== undefined && query.length >= 3) {
-            fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=5`)
-                .then((resp) => resp.json())
-                .then((data) => {
-                    if (!data.errors) {
-                        setResults(data.results);
-                    } else setResults([])
-                })
-        }
+        fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=5`)
+            .then((resp) => resp.json())
+            .then((data) => {
+                if (!data.errors) {
+                    setResults(data.results);
+                } else setResults([])
+            })
     }
 
     return (
@@ -40,7 +38,7 @@ function Add() {
                     {results.length > 0 && (
                         <ul className="results">
                             {results.map((anime, i) => (
-                                <li key={anime.id}>
+                                <li key={anime.mal_id} id={anime.mal_id} >
                                     <ResultCard anime={anime} key={anime.id + "!"} />
                                 </li>
                             ))}

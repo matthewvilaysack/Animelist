@@ -13,18 +13,20 @@ function App() {
 	return (
 		<GlobalProvider>
 			<Router>
-				<Header />
-				<Switch>
-					<Route exact path="/">
-						<Watchlist />
-					</Route>
-					<Route path="/add">
-						<Add />
-					</Route>
-					<Route path="/watched">
-						<Watched />
-					</Route>
-				</Switch>
+				<div className="app-container">
+					<Header />
+					<Switch>
+						<Route exact path="/">
+							<Watchlist />
+						</Route>
+						<Route path="/add">
+							<Add />
+						</Route>
+						<Route path="/watched">
+							<Watched />
+						</Route>
+					</Switch>
+				</div>
 			</Router>
 		</GlobalProvider>
 		// <div className="App">
