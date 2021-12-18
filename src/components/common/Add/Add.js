@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import ResultCard from '../ResultCard'
 
 function Add() {
-    // !TODO styling add-page, add-page__container
-    //!todo styling add-page__content, input-wrapper
     const [search, setSearch] = useState("");
     const [results, setResults] = useState([]);
 
@@ -37,9 +35,9 @@ function Add() {
                     </div>
                     {results.length > 0 && (
                         <ul className="results">
-                            {results.map((anime, i) => (
+                            {results.map((anime) => (
                                 <li key={anime.mal_id} id={anime.mal_id} >
-                                    <ResultCard anime={anime} key={anime.id + "!"} />
+                                    <ResultCard anime={anime} />
                                 </li>
                             ))}
                         </ul>

@@ -6,7 +6,9 @@ function ResultCard({ anime }) {
     //because of line 4, we now have access to the addtomoviewatchlist method in the global context.
 
     //do not allow duplicates in watchlist
-    let storedAnime = watchlist.find(o => o.id === anime.mal_id);
+    let storedAnime = watchlist.find(o => {
+        // o.id === anime.mal_id
+    });
     let storedAnimeWatched = watched.find(o => o.id === anime.mal_id)
     const watchlistDisabled = storedAnime
         ? true
@@ -38,7 +40,12 @@ function ResultCard({ anime }) {
             <div className="controls">
 
                 <button className="btn"
-                    onClick={() => addAnimeToWatchlist(anime)}>
+                    disabled={watchlistDisabled}
+                    onClick={(e) => {
+                        console.log(watchlist);
+                        addAnimeToWatchlist(anime)
+                    }
+                    }>
                     Add to Watchlist
                 </button>
 

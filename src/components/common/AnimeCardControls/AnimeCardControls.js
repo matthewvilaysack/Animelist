@@ -7,13 +7,25 @@ function AnimeCardControls({ type, anime }) {
         addAnimeToWatched,
         moveToWatchlist,
         removeFromWatched,
+        watchlist,
+        watched
     } = useContext(GlobalContext);
+    let storedAnime = watchlist.find((o) => o.id === anime.id);
+    let storedAnimeWatched = watched.find((o) => o.id === anime.id);
+
+    const watchlistDisabled = storedAnime
+        ? true
+        : storedAnimeWatched
+            ? true
+            : false;
+
+    const watchedDisabled = storedAnime ? true : false;
 
     return (
         <div className="inner-card-controls">
             {type === "watchlist" && (
                 <>
-                    <button className="ctrl-btn" onClick={() => addAnimeToWatched(anime)}>
+                    <button className="ctrl-btn" disabled={watchedDisabled} onClick={() => addAnimeToWatched(anime)}>
                         <i className="fa-fw far fa-eye"></i>
                     </button>
 
@@ -28,7 +40,7 @@ function AnimeCardControls({ type, anime }) {
 
             {type === "watched" && (
                 <>
-                    <button className="ctrl-btn" onClick={() => moveToWatchlist(anime)}>
+                    <button className="ctrl-btn" disabled={watchlistDisabled} onClick={() => moveToWatchlist(anime)}>
                         <i className="fa-fw far fa-eye-slash"></i>
                     </button>
 

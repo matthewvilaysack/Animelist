@@ -26,7 +26,6 @@ function AnimeCard({ anime, type }) {
 			<CardActionArea>
 				<CardActions>
 					<div className="anime-card__title-container">
-						{/* make sure to add a link tothe anime's MAL profile. */}
 						<a href={anime.title}>
 							{/* <Button href="#text-buttons" color="primary" size="medium">{anime.title}</Button> */}
 						</a>
@@ -44,7 +43,6 @@ function AnimeCard({ anime, type }) {
 					<div className="anime-card__progress">
 						<LineProgressBar percent={2} rounded={18} height={9} />
 					</div>
-
 				</CardActions>
 			</CardActionArea>
 			<AnimeCardControls type={type} anime={anime} />
