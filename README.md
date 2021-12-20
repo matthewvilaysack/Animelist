@@ -12,4 +12,4 @@ npm run start
 ```
 
 Side Notes:
-I created this application shortly after learning the basics of React. The original was created with only HTML, CSS, and JavaScript two years ago, but I couldn't get certain things working, so I decided to come back and finish the project. I enjoy watching anime, so I decided to amplify my learning by integrating this aspect of myself into a project. Lo and behold, animelist!
+ The original was created with only HTML, CSS, and JavaScript two years ago, but I couldn't get certain things working, so I decided to come back and finish the project. I created this application shortly after learning the basics of React. I enjoy watching anime, so I decided to amplify my learning by integrating this aspect of myself into a project. Lo and behold, animelist!
