@@ -17,11 +17,11 @@ function Watched() {
                 {watched.length > 0 ? (
                     <div className="anime-grid">
                         {watched.map((anime) => (
-                            <AnimeCard anime={anime} key={anime.id} type="watched" />
+                            <AnimeCard anime={anime} key={anime.mal_id} type="watched" />
                         ))}
                     </div>
                 ) : (
-                    <h2 className="no-anime">No anime in your list! Go add some!</h2>
+                    <h2 className="no-anime">No anime in your list, add some!</h2>
                 )}
             </div>
         </div>

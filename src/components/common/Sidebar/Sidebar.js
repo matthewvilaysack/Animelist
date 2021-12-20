@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function Sidebar({ topAnime }) {
 	return (
 		<aside className="sidebar">

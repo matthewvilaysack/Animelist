@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import AnimeCard from '../AnimeCard';
 
-
-
 function MainContent(props) {
 	let [searchChars, setSearchChars] = useState([]);
 	const HandleNumSearchChars = e => {
-		searchChars = new Array(e.target.value.length);
+		setSearchChars(new Array(e.target.value.length));
 		if (searchChars.length > 3) {
 			props.SetSearch(e.target.value);
-			console.log('over')
 		}
-		console.log(searchChars.length);
 	}
 	return (
 		<main>

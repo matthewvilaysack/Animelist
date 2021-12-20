@@ -29,20 +29,6 @@ function App() {
 				</div>
 			</Router>
 		</GlobalProvider>
-		// <div className="App">
-		// 	<Header />
-		// 	<div className="content-wrap">
-		// 		<Gallery topAnime={topAnime} animeList={animeList} />
-		// 		<Sidebar
-		// 			topAnime={topAnime} />
-		// 		<MainContent
-		// 			HandleSearch={HandleSearch}
-		// 			search={search}
-		// 			SetSearch={SetSearch}
-		// 			animeList={animeList} />
-		// 	</div>
-		// </div>
-
 	)
 }
 

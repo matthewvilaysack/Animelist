@@ -1,9 +1,6 @@
 import React, { createContext, useReducer, useEffect } from 'react'
 import AppReducer from './AppReducer'
-// initial state
 
-// TODO Create a firebase for this instead of localStorage
-// initial state
 const initialState = {
     watchlist: localStorage.getItem("watchlist")
         ? JSON.parse(localStorage.getItem("watchlist"))
@@ -13,13 +10,14 @@ const initialState = {
         : [],
 };
 
+
+
 //create context
 export const GlobalContext = createContext(initialState)
 
 //provider components
 export const GlobalProvider = props => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
-    //what teh fuck is state and dispatch.
 
     useEffect(() => {
         localStorage.setItem("watchlist", JSON.stringify(state.watchlist));

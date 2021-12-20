@@ -1,26 +1,27 @@
 import React, { useContext } from 'react';
 import Moment from 'react-moment';
 import { GlobalContext } from '../../../context/GlobalState';
+
+//generates the resultcard in the add tab
 function ResultCard({ anime }) {
     const { addAnimeToWatchlist, addAnimeToWatched, watchlist, watched } = useContext(GlobalContext)
-    //because of line 4, we now have access to the addtomoviewatchlist method in the global context.
 
-    //do not allow duplicates in watchlist
-    let storedAnime = watchlist.find(o => {
-        // o.id === anime.mal_id
-    });
-    let storedAnimeWatched = watched.find(o => o.id === anime.mal_id)
-    const watchlistDisabled = storedAnime
-        ? true
-        : storedAnimeWatched
+    //add and handle duplicates in watchlist and watched
+    let storedAnime = watchlist.find(o => o.mal_id === anime.mal_id);
+    let storeAnimeWatched = watched.find(o => o.mal_id === anime.mal_id)
+    const watchlistDisabled =
+        storedAnime
             ? true
-            : false;
+            : storeAnimeWatched
+                ? true
+                : false;
 
-    const watchedDisabled = storedAnimeWatched ? true : false;
+    const watchedDisabled = storeAnimeWatched ? true : false;
     return (
         <div className="result-card">
             <div className="poster-wrapper">
                 {anime.image_url ? (
+                    // eslint-disable-next-line jsx-a11y/img-redundant-alt
                     <a href={anime.url}> <img src={anime.image_url}
                         alt={`${anime.title} Image`}
                     /></a>
@@ -42,7 +43,6 @@ function ResultCard({ anime }) {
                 <button className="btn"
                     disabled={watchlistDisabled}
                     onClick={(e) => {
-                        console.log(watchlist);
                         addAnimeToWatchlist(anime)
                     }
                     }>

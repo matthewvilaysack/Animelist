@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+//header includes the h1, nav links for watched/watchlist, and 'add' feature
 function Header() {
 	return (
 		<header>
