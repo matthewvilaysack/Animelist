@@ -124,6 +124,7 @@ header a:hover {
 header .brand {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
+  padding: 5rem;
 }
 
 header .brand a {

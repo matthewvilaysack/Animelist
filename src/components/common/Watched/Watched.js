@@ -21,7 +21,7 @@ function Watched() {
                         ))}
                     </div>
                 ) : (
-                    <h2 className="no-anime">No anime in your list, add some!</h2>
+                    <h2 className="no-anime">No anime in your watched list, add some!</h2>
                 )}
             </div>
         </div>
