@@ -5,7 +5,7 @@ This application uses the JikanJS API as a database for anime, and allows you to
 
 Demo: https://priceless-stonebraker-5476bd.netlify.app/
 
-If you wish to clone the project and run itm, simply do:
+If you wish to clone the project and run it, simply do:
 ```
 npm install
 npm run start
